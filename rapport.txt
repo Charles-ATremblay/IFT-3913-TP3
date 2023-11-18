@@ -1,10 +1,11 @@
 T3.
 
 Choix d'étude :
-    - Population : L'ensemble des classes dans le projet.
-    - Échantillonnage : Sélection aléatoire ou stratifiée des classes dans le projet.
-    - Variable indépendante : Le nombre d'assertions dans une classe (plus de 20 ou moins de 20).
-    - Variable dépendante : Le niveau de complexité de la classe.
+    - Nous avons choisi le type d'expérience suivant : Expériences controlées avec les charactéristique suivantes: 
+        - Population : L'ensemble des classes dans le projet.
+        - Échantillonnage : Sélection aléatoire ou stratifiée des classes dans le projet.
+        - Variable indépendante : Le nombre d'assertions dans une classe (plus de 20 ou moins de 20).
+        - Variable dépendante : Le niveau de complexité de la classe (Évalué avec TLOC, WMC et TASSERT)).
 
 Énoncé des hypothèses :
     - Hypothèse nulle (H0) : Il n'y a pas de différence significative dans la complexité entre les classes avec plus de 20 assertions et celles avec moins de 20 assertions.
