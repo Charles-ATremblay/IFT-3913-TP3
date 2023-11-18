@@ -5,7 +5,7 @@ Choix d'étude :
         - Population : L'ensemble des classes dans le projet.
         - Échantillonnage : Sélection aléatoire ou stratifiée des classes dans le projet.
         - Variable indépendante : Le nombre d'assertions dans une classe (plus de 20 ou moins de 20).
-        - Variable dépendante : Le niveau de complexité de la classe (Évalué avec TLOC, WMC et TASSERT)).
+        - Variable dépendante : Le niveau de complexité de la classe (Évalué avec TLOC, WMC et TASSERT).
 
 Énoncé des hypothèses :
     - Hypothèse nulle (H0) : Il n'y a pas de différence significative dans la complexité entre les classes avec plus de 20 assertions et celles avec moins de 20 assertions.
@@ -23,7 +23,39 @@ Définition des variables :
 
 
 Méthodologie :
-    1. Collecte de données : Collecter des données sur le nombre d'assertions et d'autres mesures de complexité pour chaque classe dans le projet.
-    2. Séparation des groupes : Diviser les classes en deux groupes en fonction du nombre d'assertions.
-    3. Analyse comparative : Comparer les mesures de complexité entre les deux groupes.
-    4. Tests statistiques : Utiliser des tests statistiques appropriés pour déterminer si la différence observée est statistiquement significative.
+    Programme T3 nous permet de verifier en utilisant le test de Student, si les classes ayant + de 20 assertions sont plus complexes que celles en ayant 20 ou moins.
+    Voici comment on procède:
+        - Chargement des données : Les données sont chargées à partir du fichier CSV fourin (jfreechart-test-stats.csv).
+        - Création des groupes : Deux groupes sont créés en fonction du nombre d'assertions dans chaque classe. groupe_plus_20_assertions contient les classes avec plus de 20 assertions, tandis que groupe_moins_20_assertions contient celles avec 20 assertions ou moins.
+        - Test t de Student : Le test t de Student est utilisé pour comparer les moyennes des métriques TLOC et WMC entre les deux groupes. Le résultat du test est la statistique de test (t_stat_TLOC et t_stat_WMC) et la p-valeur correspondante (p_value_TLOC et p_value_WMC).
+        - Interprétation des résultats : En fonction du seuil de signification alpha (fixé à 0.05 dans ce cas), le code affiche si la différence observée est statistiquement significative. Si la p-valeur est inférieure à alpha, on rejette l'hypothèse nulle selon laquelle il n'y a pas de différence significative. 
+
+Résultats:
+    Test t de Student pour TLOC : Statistique=11.63357726030889, P-valeur=1.1701139364069334e-26
+    Test t de Student pour WMC : Statistique=10.058866057637966, P-valeur=4.5415661292742075e-21
+    Il y a une différence significative dans TLOC entre les deux groupes. ==> complexité plus élevée pour les classes ayant plus de 20 assertions
+    Il y a une différence significative dans WMC entre les deux groupes. ==> complexité plus élevée pour les classes ayant plus de 20 assertions
+
+Interpolation et généralisation des résultats:
+    TLOC: 
+        - Stat du test: 11.63
+        - P-value: 1.17e-26(proche de 0)
+        --> Il y a une différence significative dans TLOC entre les classes avec plus de 20 assertions et celles avec moins de 20 assertions. Donc nous rejettons l'hypothèse H0.
+    WMC: 
+        - Stat du test: 10.06
+        - P-value: 4.54e-21(proche de 0)
+        --> Il y a une différence significative dans WMC entre les classes avec plus de 20 assertions et celles avec moins de 20 assertions. Donc nous rejettons l'hypothèse H0.
+
+Limitations de l'étude
+    - Choix des métriques : Les métriques TLOC et WMC sont utilisées pour mesurer la complexité, mais elles pourraient ne pas capturer tous les aspects de la complexité logicielle. D'autres métriques pertinentes pourraient être incluses dans des études futures pour une compréhension plus complète de la complexité des classes comme la profondeur de l'héritage ou le nombre de ligne de code par méthode par exemple.
+    - Généralisation des résultats : Les résultats de cette étude peuvent être spécifiques au contexte des classes logicielles étudiées. Les classes dans d'autres projets ou domaines pourraient réagir différemment. On ne peut donc pas assumer que la généralisation s'applique pour tous les logiciels.
+
+Recommandation futures:
+    - Élargissement des métriques : Pour obtenir une vue plus complète de la complexité logicielle, il pourrait être intéressant d'inclure d'autres métriques pertinentes, telles que la profondeur de l'héritage ou le nombre de ligne de code par méthode.
+
+Applicabilité des résultats:
+    Les résultats de cette étude peuvent être applicables à d'autres contextes de développement logiciel, mais leur transférabilité dépend de divers facteurs. Ces facteurs incluent la similarité des projets en termes de taille, de domaine et de technologie. 
+    Par exemple, les conclusions peuvent être plus directement pertinentes pour des projets similaires qui partagent les caractéristiques suivantes :
+        - Taille du projet : Les résultats peuvent être plus applicables à des projets de taille similaire en termes de nombre de lignes de code, de nombre de classes, etc.
+        - Technologie utilisée : La nature de la technologie sous-jacente (langage de programmation, architecture logicielle, etc.) peut influencer la généralisabilité des résultats. Des projets utilisant des technologies similaires peuvent bénéficier davantage des conclusions de cette étude.
+
