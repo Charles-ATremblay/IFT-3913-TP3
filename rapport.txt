@@ -1,0 +1,28 @@
+T3.
+
+Choix d'étude :
+    - Population : L'ensemble des classes dans le projet.
+    - Échantillonnage : Sélection aléatoire ou stratifiée des classes dans le projet.
+    - Variable indépendante : Le nombre d'assertions dans une classe (plus de 20 ou moins de 20).
+    - Variable dépendante : Le niveau de complexité de la classe.
+
+Énoncé des hypothèses :
+    - Hypothèse nulle (H0) : Il n'y a pas de différence significative dans la complexité entre les classes avec plus de 20 assertions et celles avec moins de 20 assertions.
+    - Hypothèse alternative (H1) : Les classes avec plus de 20 assertions sont plus complexes que celles avec moins de 20 assertions.
+
+Définition des variables :
+    Variable indépendante :
+        - Catégorie 1 : Classes avec plus de 20 assertions.
+        - Catégorie 2 : Classes avec moins de 20 assertions.
+    
+    Variables dépendante :
+        - TLOC
+        - WMC
+        - TASSERT
+
+
+Méthodologie :
+    1. Collecte de données : Collecter des données sur le nombre d'assertions et d'autres mesures de complexité pour chaque classe dans le projet.
+    2. Séparation des groupes : Diviser les classes en deux groupes en fonction du nombre d'assertions.
+    3. Analyse comparative : Comparer les mesures de complexité entre les deux groupes.
+    4. Tests statistiques : Utiliser des tests statistiques appropriés pour déterminer si la différence observée est statistiquement significative.
